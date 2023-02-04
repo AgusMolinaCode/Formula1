@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.hero {
+  background-image: url('https://cdn.sanity.io/images/fnx611yr/production/7949033d85c4fb116a7d1dbd82f03e5066996d95-2000x1333.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+
