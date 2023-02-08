@@ -3,12 +3,17 @@ import lewis from '../assets/lewis.png'
 import sainz from '../assets/sainz.png'
 import max from '../assets/max.png'
 import { motion } from "framer-motion"
+import Teams from '../components/Team'
+import Circuit from '../components/Circuit'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const Main = () => {
   return (
-    <>
+    <div>
+        <div class='hero'></div>
         <div className="relative h-[720px]">
-            <div className="absolute bg-black w-auto h-[760px] top-[-48px] transform -skew-y-3">
+            <div className="absolute bg-black w-full h-[760px] top-[-48px] transform -skew-y-3">
                 <div className="h-full w-auto clip-path-y-2 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-700 via-orange-300 to-rose-800">
                     <div>
                         <h1 className='font-formula text-5xl text-white text-center font-bold p-3'>DRIVERS</h1>
@@ -35,7 +40,13 @@ const Main = () => {
                 </div>  
             </div>
         </div>
-    </>
+
+        <div>
+            <Teams />
+            <Circuit />
+            <Footer />
+        </div>
+    </div>
 
   )
 }
