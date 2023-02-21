@@ -11,7 +11,7 @@ const CircuitCard = () => {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': VITE_APP_RAPIDAPI_ID,
+            'X-RapidAPI-Key': import.meta.env.VITE_APP_RAPIDAPI_ID,
             'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
         }
     };
