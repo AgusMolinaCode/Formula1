@@ -4,17 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  background-image: url('');
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
 .hero {
   background-image: url('https://cdn.sanity.io/images/fnx611yr/production/7949033d85c4fb116a7d1dbd82f03e5066996d95-2000x1333.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:center;
   height: 80vh;
+}
+
+@media (max-width: 770px) {
+  .hero {
+    background-image :url('https://firebasestorage.googleapis.com/v0/b/formula1-10797.appspot.com/o/honda.jpeg?alt=media&token=7314f52b-e1fc-491d-b395-47aef3b6a5b5');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .herodriver {
@@ -24,4 +26,99 @@
   height: 80vh;
 }
 
+.f1-border--top-right {
+  border-top: solid 7px red;
+  border-right: solid 7px red;
+  border-top-right-radius: 25px;
+  padding-top: 020px;
+  padding-right: 20px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 1rem;
+}
 
+@media (max-width: 770px){
+  .f1-border--top-right{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.listing-item-wrapper {
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  border-top-right-radius: 10px;
+  padding-top: 0;
+  padding-right: 0;
+  margin-top: 40px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.listing-item-wrapper:hover{
+  border-top: solid 2px rgb(192, 90, 72);
+  border-right: solid 2px rgb(192, 90, 72);
+  transition-duration: 300ms;
+}
+
+
+
+.driver {
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-bottom-right-radius: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding: 0;
+  width: 100%;
+  /* max-width: 48%; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}  
+
+@media (max-width: 770px) {
+  .driver {
+    max-width: 100%;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 2;
+  width: 100%;
+}
+
+@media (max-width: 770px) {
+  .card{
+    flex-direction: column;
+  }
+}
+
+.listing-image {
+  text-align: center;
+  background-image: url(https://www.formula1.com/etc/designs/fom-website/images/patterns/plus-x1.png);
+  background-size: 12px;
+  background-repeat: repeat;
+  background-size: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-position-x: -1px;
+  margin-top: 12px;
+}
+
+.f1-stat {
+  border-right: solid 2px tomato;
+  border-bottom: solid 2px tomato;
+  border-bottom-right-radius: 15px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  /* min-height: 65px; */
+}
+
+
+
+ 
