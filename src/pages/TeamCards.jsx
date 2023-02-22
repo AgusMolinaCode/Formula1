@@ -1,26 +1,36 @@
 import React, {useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { getFirestore, getDoc, doc } from 'firebase/firestore'
+import ClipLoader from "react-spinners/ClipLoader";
 
 const TeamCards = () => {
 
   const {ID} = useParams();
 
   const [item,setItem] = useState({})
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const querydb = getFirestore();
-    const queryDoc = doc(querydb, "Equipos", ID);
-    getDoc(queryDoc).then((res) => setItem({ id: res.id, ...res.data() }));
+    setLoading(true)
+    setTimeout(() => {
+      const querydb = getFirestore();
+      const queryDoc = doc(querydb, "Equipos", ID);
+      getDoc(queryDoc).then((res) => setItem({ id: res.id, ...res.data() }));
+      setLoading(false)
+    }, 2500);  
   }, [ID]);
 
+  const spinner = <ClipLoader color={"#c15129"} loading={loading} size={100} dis />;
+
   return (
-    <div className='pt-[100px] bg-amber-50 pb-[5rem]'>
+    <div className='pt-[100px] bg-white pb-[5rem]'>
+       
       <div className='pt-14 lg:px-10'>
-        
+      
         <h1 className='text-6xl text-center md:text-start font-formula'>{item.nombre}</h1>
 
         <div className='mt-10 bg-white  rounded-3xl pb-1'>
+        {loading ? <div className='flex justify-center mx-auto mt-10'>{spinner}</div> :
           <div>
             <div>
                   
@@ -89,9 +99,9 @@ const TeamCards = () => {
                     </div>
 
 
-                <div className='mt-[5rem] ml-2 mr-2 px-5 lg:px-12 mx-auto lg:max-w-[1300px]'>
+                <div className='mt-[5rem]  px-5 lg:px-12 mx-auto lg:max-w-[1300px]'>
                     <div className='flex justify-center items-center mx-auto mt-12 rounded-3xl  mb-10'>
-                        <div className="carousel w-full m-2 rounded-3xl">
+                        <div className="carousel w-full  rounded-3xl">
                             <div id="slide1" className="carousel-item relative w-full">
                                 <img src={item.foto1} className="w-full" />
                                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -126,10 +136,11 @@ const TeamCards = () => {
               </div>
             </div>
           </div>
+          }
         </div>
 
       </div>
-      
+
     </div>
   )
 }

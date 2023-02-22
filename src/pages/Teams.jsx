@@ -2,18 +2,27 @@ import React, {useState,useEffect} from 'react'
 import Equipos from '../components/Equipos'
 import teamfondo from '../assets/teamfondo.jpeg'
 import {getFirestore, collection, getDocs} from 'firebase/firestore'
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const Teams = () => {
 
   const [equipos, setEquipos] = useState( [] )
+  const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      const querydb = getFirestore()
-      const queryCollection = collection(querydb, 'Equipos')
-      getDocs(queryCollection)
+      setLoading(true);
+      setTimeout(() => {
+        const querydb = getFirestore()
+        const queryCollection = collection(querydb, 'Equipos')
+        getDocs(queryCollection)
           .then( (res) => setEquipos(res.docs.map((product) => ({ id: product.id, ...product.data() }))));
+          setLoading(false)
+      }, 2500);    
     }, [])
+
+    const spinner = <ClipLoader color={"#c15129"} loading={loading} size={100} dis />;
+
 
   return (
     <div>
@@ -27,7 +36,7 @@ const Teams = () => {
       
       
       <div>
-        <Equipos equipos={equipos} />
+      {loading ? <div className='flex justify-center mx-auto mt-10'>{spinner}</div> : <Equipos equipos={equipos} />}
       </div>
     </div>
   )

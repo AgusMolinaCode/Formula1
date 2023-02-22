@@ -2,18 +2,32 @@ import React, {useState,useEffect} from 'react'
 import Pilotos from '../components/Pilotos'
 import driver from '../assets/driver.jpg'
 import {getFirestore, collection, getDocs} from 'firebase/firestore'
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Drivers = () => {
 
   const [pilotos, setPilotos] = useState( [] )
+  const [loading, setLoading] = useState(true);
   
-    useEffect(() => {
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
       const querydb = getFirestore()
       const queryCollection = collection(querydb, 'Pilotos')
       getDocs(queryCollection)
-          .then( (res) => setPilotos(res.docs.map((product) => ({ id: product.id, ...product.data() }))));
-    }, [])
+        .then((res) => {
+          setPilotos(res.docs.map((product) => ({ id: product.id, ...product.data() })));
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
+          setLoading(false);
+        });
+    }, 2500); // Retraso de 3 segundos
+  }, []);
+
+    const spinner = <ClipLoader color={"#c15129"} loading={loading} size={100} dis />;
+
 
   return (
     <div>
@@ -30,7 +44,7 @@ const Drivers = () => {
       <h1 className='text-center flex justify-center text-5xl mt-5  text-black font-formula'>DRIVERS</h1>
       
       <div>
-        <Pilotos pilotos={pilotos} />
+      {loading ? <div className='flex justify-center mx-auto mt-10'>{spinner}</div> : <Pilotos pilotos={pilotos} />}
       </div>
     </div>
   )

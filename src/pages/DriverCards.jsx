@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { getFirestore, getDoc, doc } from 'firebase/firestore'
 import circuit from '../assets/circuit.jpeg'
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const DriverCards = () => {
@@ -9,12 +10,21 @@ const DriverCards = () => {
   const {ID} = useParams()
 
   const [item,setItem] = useState({})  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const querydb = getFirestore();
-    const queryDoc = doc(querydb, "Pilotos", ID);
-    getDoc(queryDoc).then((res) => setItem({ id: res.id, ...res.data() }));
+    setLoading(true)
+    setTimeout(() => {
+        const querydb = getFirestore();
+        const queryDoc = doc(querydb, "Pilotos", ID);
+        getDoc(queryDoc).then((res) => setItem({ id: res.id, ...res.data() })); 
+        setLoading(false)
+    }, 2000);
+    
+    
   }, [ID]);
+
+  const spinner = <ClipLoader color={"#c15129"} loading={loading} size={100} dis />;
     
   return (
     <div>
@@ -26,8 +36,9 @@ const DriverCards = () => {
             <div className='flex md:hidden'>   
                 <img className='h-[460px] w-full' src='https://firebasestorage.googleapis.com/v0/b/formula1-10797.appspot.com/o/1.jpg?alt=media&token=eba68689-6115-4018-bcde-a1df1f6b3aee' alt="Imagen de Formula 1" />
             </div>
-
+            {loading ? <div className='flex justify-center mx-auto mt-10'>{spinner}</div> :
             <div>
+                
                 
                 <h1 className='mt-10 text-center font-formula font-bold text-5xl lg:text-7xl'>{item.nombre}</h1>
                 
@@ -108,8 +119,9 @@ const DriverCards = () => {
                             </div>
                         </div> 
                     </div>
-                </div>    
+                </div> 
             </div>
+        }
     </div>
   )
 }
