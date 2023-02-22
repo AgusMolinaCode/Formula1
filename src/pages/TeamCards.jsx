@@ -89,7 +89,7 @@ const TeamCards = () => {
                     </div>
 
 
-                <div className='mt-[5rem] px-5 lg:px-12 mx-auto lg:max-w-[1300px]'>
+                <div className='mt-[5rem] ml-2 mr-2 px-5 lg:px-12 mx-auto lg:max-w-[1300px]'>
                     <div className='flex justify-center items-center mx-auto mt-12 rounded-3xl  mb-10'>
                         <div className="carousel w-full rounded-3xl">
                             <div id="slide1" className="carousel-item relative w-full">

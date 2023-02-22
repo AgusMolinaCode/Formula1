@@ -24,7 +24,7 @@ const Teams = () => {
         <div>
             <h1 className='font-formula text-center text-5xl font-bold mt-8'>TEAMS</h1>
             <h2 className='font-formula text-center text-3xl font-bold mt-8'>F1 Teams 2023</h2>
-            <p className='font-formula text-center text-xl font-bold mt-8'>Discover everything you need to know about this year's Formula 1 teams - drivers, podium finishes, points earned and championship titles.</p>
+            <p className='font-formula text-center text-xl font-bold mt-8 mr-2 ml-2'>Discover everything you need to know about this year's Formula 1 teams - drivers, podium finishes, points earned and championship titles.</p>
         </div>
 
         
