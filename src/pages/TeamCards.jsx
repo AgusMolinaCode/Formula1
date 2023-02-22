@@ -91,7 +91,7 @@ const TeamCards = () => {
 
                 <div className='mt-[5rem] ml-2 mr-2 px-5 lg:px-12 mx-auto lg:max-w-[1300px]'>
                     <div className='flex justify-center items-center mx-auto mt-12 rounded-3xl  mb-10'>
-                        <div className="carousel w-full rounded-3xl">
+                        <div className="carousel w-full m-2 rounded-3xl">
                             <div id="slide1" className="carousel-item relative w-full">
                                 <img src={item.foto1} className="w-full" />
                                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
