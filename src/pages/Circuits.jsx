@@ -31,7 +31,7 @@ const Circuits = () => {
             </div>
                 
             <div className='flex md:hidden'>   
-                <img className='h-[460px] w-full' src='https://s3.sportstatics.com/relevo/www/multimedia/202210/25/media/cortadas/eau-rouge-vertical-R3WYxeUoMkAiQKultbYa9MN-720x960%40Relevo.jpg' alt="Imagen de Formula 1" />
+                <img className='h-[460px] w-full' src='https://firebasestorage.googleapis.com/v0/b/formula1-10797.appspot.com/o/131.jpg?alt=media&token=9bdc49e7-7915-4ccf-bc43-f916da9c9668' alt="Imagen de Formula 1" />
             </div>
 
             <div>
